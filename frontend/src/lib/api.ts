@@ -7,8 +7,12 @@
 // Allow overriding in local dev: set VITE_API_BASE_URL in frontend/.env
 // Example: VITE_API_BASE_URL=http://localhost:8080/api
 // Prefer the Vite dev proxy by default (same-origin) to avoid CORS/cookie issues.
-// Can be overridden via VITE_API_BASE_URL (e.g., http://localhost:8080/api)
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '/api';
+// In production, we MUST call the real backend origin (Render) unless the app is
+// deployed behind a same-origin reverse proxy. If you deploy a proxy, set
+// VITE_API_BASE_URL=/api in that environment.
+const API_BASE_URL =
+  import.meta.env.VITE_API_BASE_URL ||
+  (import.meta.env.DEV ? '/api' : 'https://alliededge-backend.onrender.com/api');
 
 // Dev-time guard: if we're using the relative proxy base but the dev server isn't proxying,
 // requests can incorrectly hit :5173 and fail with 403/404.
