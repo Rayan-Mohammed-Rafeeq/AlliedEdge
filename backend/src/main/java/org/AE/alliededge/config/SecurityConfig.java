@@ -62,7 +62,6 @@ public class SecurityConfig {
             .csrf(csrf -> csrf
                 .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
                 .ignoringRequestMatchers("/ws/**")
-                .ignoringRequestMatchers("/api/**")
             )
 
             .exceptionHandling(ex -> ex
