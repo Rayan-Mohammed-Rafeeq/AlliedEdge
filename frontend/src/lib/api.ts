@@ -78,6 +78,9 @@ export async function apiClient<T>(path: string, init: RequestInit = {}): Promis
     headers['Content-Type'] = 'application/json';
   }
   if (csrf) {
+    // Spring may advertise either X-XSRF-TOKEN (common default) or X-CSRF-TOKEN.
+    // Send both for maximum compatibility.
+    headers['X-XSRF-TOKEN'] = csrf;
     headers['X-CSRF-TOKEN'] = csrf;
   }
 
