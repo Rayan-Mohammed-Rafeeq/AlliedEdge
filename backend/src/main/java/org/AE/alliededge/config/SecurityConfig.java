@@ -60,7 +60,7 @@ public class SecurityConfig {
             // Enable CSRF with cookie-based tokens for the SPA. Frontend calls GET /api/csrf to obtain XSRF-TOKEN cookie.
             // Keep WS endpoints ignored.
             .csrf(csrf -> csrf
-                .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
+                .csrfTokenRepository(csrfTokenRepository())
                 .ignoringRequestMatchers("/ws/**")
             )
 
@@ -175,5 +175,22 @@ public class SecurityConfig {
             );
 
         return http.build();
+    }
+
+    /**
+     * CSRF cookie for SPA.
+     *
+     * Important: in production the frontend is on a different site (Vercel) than the backend (Render),
+     * so the cookie must be SameSite=None; Secure, otherwise browsers won't persist it and the SPA
+     * can't send the required X-XSRF-TOKEN header for unsafe requests.
+     */
+    @Bean
+    public CookieCsrfTokenRepository csrfTokenRepository() {
+        CookieCsrfTokenRepository repo = CookieCsrfTokenRepository.withHttpOnlyFalse();
+        repo.setCookiePath("/");
+        repo.setSecure(true);
+        // Spring Security 6 supports SameSite via the cookie customizer.
+        repo.setCookieCustomizer(cookie -> cookie.sameSite("None"));
+        return repo;
     }
 }

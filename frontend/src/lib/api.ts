@@ -161,8 +161,12 @@ async function ensureCsrfCookie(): Promise<void> {
   await fetch(`${API_BASE_URL}/csrf`, { credentials: 'include' });
 
   if (!getCookie('XSRF-TOKEN')) {
-    // Provide a clear surface-level error to guide debugging.
-    throw new ApiError(403, UNAUTHENTICATED_MESSAGE);
+    // This is almost always a cross-site cookie / CSRF cookie issue, not an auth issue.
+    // Returning an auth message here confuses users (“I am logged in but it says login”).
+    throw new ApiError(
+      403,
+      'Security token not set (CSRF). Please refresh and try again. If the problem persists, allow third‑party cookies for this site.',
+    );
   }
 }
 
