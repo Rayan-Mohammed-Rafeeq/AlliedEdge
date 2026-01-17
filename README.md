@@ -1,8 +1,8 @@
 # AlliedEdge
 
-A full‑stack social + blogging application with real-time features, built with **Spring Boot** on the backend and **React (Vite + TypeScript)** on the frontend.
+A full‑stack **social platform** built with a **Spring Boot (Java 17)** API and a **React (Vite + TypeScript)** SPA, featuring Google OAuth login, profiles & posts, media uploads via Cloudinary, and real-time updates over WebSockets (STOMP/SockJS).
 
-**Live demo:** https://allied-edge.vercel.app
+**Live demo (Vercel):** https://allied-edge.vercel.app
 
 > Recruiter note: This repo contains both the API (auth, posts, profiles, chat) and the SPA. The backend is designed for production-style deployments (Postgres, Flyway migrations, OAuth login, secure cookies behind proxies).
 
@@ -13,6 +13,7 @@ A full‑stack social + blogging application with real-time features, built with
 - **Postgres + Flyway** migrations (repeatable, production-friendly)
 - **Media uploads** via **Cloudinary**
 - **SPA frontend** with modern UI stack (Tailwind + Radix UI)
+- **Deployed**: **Frontend on Vercel**, **Backend on Render**
 - **Dev-friendly**: Vite proxying to backend (`/api`, `/ws`, OAuth routes)
 
 ## Tech stack
@@ -40,7 +41,7 @@ A full‑stack social + blogging application with real-time features, built with
 ## Architecture (high level)
 
 - **Frontend (Vercel)** serves the SPA.
-- **Backend (Spring Boot)** exposes:
+- **Backend (Render)** runs the Spring Boot API and exposes:
   - REST endpoints (commonly under `/api`)
   - WebSocket endpoint(s) (proxied under `/ws` in dev)
   - OAuth endpoints (e.g. `/oauth2/authorization/google`)
