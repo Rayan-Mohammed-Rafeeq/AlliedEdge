@@ -1,3 +1,9 @@
+<p align="center">
+  <img src="assets/logo.png" alt="AlliedEdge Logo" width="140"/>
+</p>
+
+<h1 align="center">AlliedEdge</h1>
+
 # AlliedEdge
 
 A full‑stack social + blogging application with real-time features, built with **Spring Boot** on the backend and **React (Vite + TypeScript)** on the frontend.
