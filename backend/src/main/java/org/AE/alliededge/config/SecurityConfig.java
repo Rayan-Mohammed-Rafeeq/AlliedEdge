@@ -16,6 +16,7 @@ import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 import org.springframework.security.oauth2.core.OAuth2AuthenticationException;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -31,15 +32,18 @@ public class SecurityConfig {
     private final CorsConfigurationSource corsConfigurationSource;
 
     private final String frontendRedirectUrl;
+    private final Environment environment;
 
     public SecurityConfig(CustomOAuth2UserService customOAuth2UserService,
                           FrontendRedirectAuthenticationSuccessHandler frontendRedirectAuthenticationSuccessHandler,
                           CorsConfigurationSource corsConfigurationSource,
-                          @Value("${app.frontend.redirect-url:http://localhost:5173/}") String frontendRedirectUrl) {
+                          @Value("${app.frontend.redirect-url:http://localhost:5173/}") String frontendRedirectUrl,
+                          Environment environment) {
         this.customOAuth2UserService = customOAuth2UserService;
         this.frontendRedirectAuthenticationSuccessHandler = frontendRedirectAuthenticationSuccessHandler;
         this.corsConfigurationSource = corsConfigurationSource;
         this.frontendRedirectUrl = frontendRedirectUrl;
+        this.environment = environment;
     }
 
     @Bean
@@ -188,9 +192,16 @@ public class SecurityConfig {
     public CookieCsrfTokenRepository csrfTokenRepository() {
         CookieCsrfTokenRepository repo = CookieCsrfTokenRepository.withHttpOnlyFalse();
         repo.setCookiePath("/");
-        repo.setSecure(true);
-        // Spring Security 6 supports SameSite via the cookie customizer.
-        repo.setCookieCustomizer(cookie -> cookie.sameSite("None"));
+
+        boolean prodLike = environment != null && environment.matchesProfiles("prod");
+        // Only force Secure + SameSite=None when we're in a cross-site HTTPS deployment.
+        // In local dev/tests (http), Secure cookies won't be set/sent, causing 403 CSRF failures.
+        repo.setSecure(prodLike);
+        if (prodLike) {
+            // Spring Security 6 supports SameSite via the cookie customizer.
+            repo.setCookieCustomizer(cookie -> cookie.sameSite("None"));
+        }
+
         return repo;
     }
 }

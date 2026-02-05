@@ -14,6 +14,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import java.util.UUID;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.multipart;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -56,6 +57,7 @@ class ProfileControllerTest {
                                     return req;
                                 })
                                 .with(org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.user(testEmail))
+                                .with(csrf())
                                 .param("displayName", "New Name")
                                 // bio intentionally omitted; should stay "Old bio"
                                 .param("removeProfileImage", "false")
@@ -76,6 +78,7 @@ class ProfileControllerTest {
                                     return req;
                                 })
                                 .with(org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.user(testEmail))
+                                .with(csrf())
                                 .param("username", "bad@name")
                                 .param("removeProfileImage", "false")
                 )
@@ -98,6 +101,7 @@ class ProfileControllerTest {
                                     return req;
                                 })
                                 .with(org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.user(testEmail))
+                                .with(csrf())
                                 .param("removeBannerImage", "false")
                                 .param("removeProfileImage", "false")
                 )
@@ -115,6 +119,7 @@ class ProfileControllerTest {
                                     return req;
                                 })
                                 .with(org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.user(testEmail))
+                                .with(csrf())
                                 .param("removeBannerImage", "true")
                                 .param("removeProfileImage", "false")
                 )
@@ -133,6 +138,7 @@ class ProfileControllerTest {
                                     return req;
                                 })
                                 .with(org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.user(testEmail))
+                                .with(csrf())
                                 .param("location", "Melbourne")
                                 .param("twitter", "https://twitter.com/example")
                                 .param("skillsJson", "[\"Java\",\"React\"]")
