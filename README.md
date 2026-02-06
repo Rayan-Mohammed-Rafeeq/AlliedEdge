@@ -201,14 +201,14 @@ If they’re missing, the backend will fail fast at startup.
   - `http://localhost:8080/login/oauth2/code/google`
 - **Cookies not sticking in production**: backend is configured for `SameSite=None; Secure` and proxy headers; ensure you’re using HTTPS.
 
-## Screenshots (optional)
+## Demo Video
 
-Add screenshots or a short GIF here to make the project stand out for recruiters.
+<p align="center">
+  <a href="https://youtu.be/GJCqGL8KnIw" target="_blank">
+    <img src="https://img.youtube.com/vi/GJCqGL8KnIw/maxresdefault.jpg" width="600"/>
+  </a>
+</p>
 
-Suggested files:
-- `docs/screenshots/feed.png`
-- `docs/screenshots/profile.png`
-- `docs/screenshots/chat.png`
 
 ## License
 
