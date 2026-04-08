@@ -4,7 +4,8 @@ This frontend does **not** use Google Identity Services, the Google JS SDK, or a
 
 Instead, login is initiated by redirecting the browser to the backend (Spring Security) endpoint:
 
-- `http://localhost:8080/oauth2/authorization/google`
+- Local dev: `http://localhost:8080/oauth2/authorization/google`
+- Production: `https://api.alliededge.app/oauth2/authorization/google`
 
 The backend performs the entire OAuth flow with Google and then redirects back to the frontend with whatever authentication mechanism your backend uses (typically an HttpOnly session cookie or a backend-issued JWT).
 

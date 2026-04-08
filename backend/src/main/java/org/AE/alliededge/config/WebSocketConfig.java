@@ -22,12 +22,20 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
     public void registerStompEndpoints(StompEndpointRegistry registry) {
         // Register /ws/chat endpoint with SockJS fallback
         registry.addEndpoint("/ws/chat")
-                .setAllowedOriginPatterns("http://localhost:5173", "http://127.0.0.1:5173")
+                .setAllowedOriginPatterns(
+                        "https://alliededge.app",
+                        "http://localhost:5173",
+                        "http://127.0.0.1:5173"
+                )
                 .withSockJS();
 
         // Realtime post stats (likes/comments)
         registry.addEndpoint("/ws/posts")
-                .setAllowedOriginPatterns("http://localhost:5173", "http://127.0.0.1:5173")
+                .setAllowedOriginPatterns(
+                        "https://alliededge.app",
+                        "http://localhost:5173",
+                        "http://127.0.0.1:5173"
+                )
                 .withSockJS();
     }
 }

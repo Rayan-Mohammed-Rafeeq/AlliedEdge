@@ -12,7 +12,7 @@
 // VITE_API_BASE_URL=/api in that environment.
 const API_BASE_URL =
   import.meta.env.VITE_API_BASE_URL ||
-  (import.meta.env.DEV ? '/api' : 'https://alliededge-backend.onrender.com/api');
+  (import.meta.env.DEV ? '/api' : 'https://api.alliededge.app/api');
 
 // Dev-time guard: if we're using the relative proxy base but the dev server isn't proxying,
 // requests can incorrectly hit :5173 and fail with 403/404.

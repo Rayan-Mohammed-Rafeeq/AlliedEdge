@@ -6,7 +6,7 @@
 
 A full‑stack **social platform** built with a **Spring Boot (Java 17)** API and a **React (Vite + TypeScript)** SPA, featuring Google OAuth login, profiles & posts, media uploads via Cloudinary, and real-time updates over WebSockets (STOMP/SockJS).
 
-**Live demo (Vercel):** https://allied-edge.vercel.app
+**Live demo:** https://alliededge.app
 
 > Recruiter note: This repo contains both the API (auth, posts, profiles, chat) and the SPA. The backend is designed for production-style deployments (Postgres, Flyway migrations, OAuth login, secure cookies behind proxies).
 
@@ -60,7 +60,7 @@ A full‑stack **social platform** built with a **Spring Boot (Java 17)** API an
 
 ## Quick links
 
-- **Live site:** https://allied-edge.vercel.app
+- **Live site:** https://alliededge.app
 - **Google OAuth flow details:** `frontend/docs/google-login.md`
 
 ## Local development
@@ -160,7 +160,8 @@ The backend reads configuration from environment variables (see `.env` example a
 This app uses **backend-driven** Google OAuth (Spring Security).
 
 - Login is initiated by navigating the browser to:
-  - `http://localhost:8080/oauth2/authorization/google`
+  - Local dev: `http://localhost:8080/oauth2/authorization/google`
+  - Production: `https://api.alliededge.app/oauth2/authorization/google`
 - The backend completes the OAuth flow and redirects back to the frontend.
 
 More details:
