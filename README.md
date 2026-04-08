@@ -1,14 +1,22 @@
-<p align="center">
-  <img src="https://github.com/Rayan-Mohammed-Rafeeq/AlliedEdge/blob/main/frontend/public/logo.svg" alt="AlliedEdge Logo" width="140"/>
+<p>
+  <img src="https://alliededge.app/logo.svg" alt="AlliedEdge Logo" width="140"/>
 </p>
 
-<h1 align="center">AlliedEdge</h1>
+<h1>AlliedEdge</h1>
 
 A full‑stack **social platform** built with a **Spring Boot (Java 17)** API and a **React (Vite + TypeScript)** SPA, featuring Google OAuth login, profiles & posts, media uploads via Cloudinary, and real-time updates over WebSockets (STOMP/SockJS).
 
 **Live demo:** https://alliededge.app
 
-> Recruiter note: This repo contains both the API (auth, posts, profiles, chat) and the SPA. The backend is designed for production-style deployments (Postgres, Flyway migrations, OAuth login, secure cookies behind proxies).
+> Note: The backend is hosted on Render and may **cold start** after inactivity. The first request can take **up to ~3 minutes**; subsequent requests are fast.
+
+## Recruiter overview
+
+- This repo contains both the **backend API** (Spring Boot) and the **frontend SPA** (React/Vite).
+- Focus areas: **auth (Google OAuth)**, **real-time WebSockets**, **data modeling with JPA/Hibernate**, **Flyway migrations**, and **production deployment considerations** (secure cookies, proxy headers, CORS).
+- Deployment: **Frontend on Vercel**, **Backend on Render**, **Postgres**.
+
+> If you’d like a guided walkthrough, start with the **Highlights** section and the **Demo video** below.
 
 ## Highlights
 
@@ -63,7 +71,17 @@ A full‑stack **social platform** built with a **Spring Boot (Java 17)** API an
 - **Live site:** https://alliededge.app
 - **Google OAuth flow details:** `frontend/docs/google-login.md`
 
-## Local development
+## Usage & academic integrity
+
+This repository is public **for recruiter/hiring-manager review**.
+
+- **Do not copy, clone, fork, or reuse** this project (in whole or in part) for coursework, assignments, hackathons, or any submission where you are expected to produce original work.
+- **Do not re-upload** the source or deploy it as your own (including “portfolio” clones).
+- You may **read the code** to evaluate my work. If you want to reuse any portion, please **request permission first**.
+
+In addition to the note above, the project is licensed as **proprietary / all rights reserved** (see **License**).
+
+## Local development (for evaluation)
 
 ### Prerequisites
 
@@ -204,13 +222,18 @@ If they’re missing, the backend will fail fast at startup.
 
 ## Demo Video
 
-<p align="center">
+<p>
   <a href="https://youtu.be/GJCqGL8KnIw" target="_blank">
-    <img src="https://img.youtube.com/vi/GJCqGL8KnIw/maxresdefault.jpg" width="600"/>
+    <img src="https://img.youtube.com/vi/GJCqGL8KnIw/maxresdefault.jpg" width="600" alt="AlliedEdge demo video thumbnail"/>
   </a>
 </p>
 
 
 ## License
 
-All rights reserved. This project is proprietary. See `LICENSE`.
+All rights reserved. This project is proprietary.
+
+- You are **not granted permission** to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the software.
+- For permission requests (e.g., recruiter evaluation, interview take-home, or other authorized review), contact me via GitHub.
+
+See `LICENSE`.
