@@ -1,26 +1,34 @@
-<head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/png" href="/logo.svg" />
-  <link rel="manifest" href="/manifest.webmanifest" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- SEO TITLE -->
-  <title>Allied Edge - Student & Teacher Productivity Platform</title>
+    <title>Allied Edge - Student & Teacher Productivity Platform</title>
+    <meta
+      name="description"
+      content="Allied Edge is a platform for students and teachers to manage notes, tasks, and presentations efficiently. Collaborate, organize, and stay productive."
+    />
+    <meta
+      name="keywords"
+      content="Allied Edge, student productivity app, teacher tools, task manager, notes app, collaboration platform"
+    />
+    <meta name="author" content="Rayan Mohammed Rafeeq" />
 
-  <!-- META DESCRIPTION (VERY IMPORTANT) -->
-  <meta name="description" content="Allied Edge is a platform for students and teachers to manage notes, tasks, and presentations efficiently. Collaborate, organize, and stay productive." />
+    <!-- Canonical helps Google understand the preferred URL -->
+    <link rel="canonical" href="https://alliededge.app/" />
 
-  <!-- KEYWORDS -->
-  <meta name="keywords" content="Allied Edge, student productivity app, teacher tools, task manager, notes app, collaboration platform" />
-
-  <!-- AUTHOR -->
-  <meta name="author" content="Rayan Mohammed Rafeeq" />
-
-  <!-- OPEN GRAPH (for sharing on WhatsApp, LinkedIn etc) -->
-  <meta property="og:title" content="Allied Edge - Connect & Collaborate" />
-  <meta property="og:description" content="A productivity platform for students and teachers." />
-  <meta property="og:image" content="https://alliededge.app/logo.svg" />
-  <meta property="og:url" content="https://alliededge.app" />
-  <meta property="og:type" content="website" />
-
-</head>
+    <!-- Open Graph (sharing previews) -->
+    <meta property="og:title" content="Allied Edge - Connect & Collaborate" />
+    <meta property="og:description" content="A productivity platform for students and teachers." />
+    <meta property="og:image" content="https://alliededge.app/logo.svg" />
+    <meta property="og:url" content="https://alliededge.app" />
+    <meta property="og:type" content="website" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
