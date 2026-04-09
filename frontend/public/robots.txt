@@ -1,0 +1,5 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://alliededge.app/sitemap.xml
+
