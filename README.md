@@ -236,4 +236,4 @@ All rights reserved. This project is proprietary.
 - You are **not granted permission** to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the software.
 - For permission requests (e.g., recruiter evaluation, interview take-home, or other authorized review), contact me via GitHub.
 
-See `LICENSE`.
+See [`LICENSE`](LICENSE).
