@@ -10,7 +10,7 @@ A full‑stack **social platform** built with a **Spring Boot (Java 17)** API an
 
 > Note: The backend is hosted on Render and may **cold start** after inactivity. The first request can take **up to ~3 minutes**; subsequent requests are fast.
 
-## Recruiter overview
+## Overview
 
 - This repo contains both the **backend API** (Spring Boot) and the **frontend SPA** (React/Vite).
 - Focus areas: **auth (Google OAuth)**, **real-time WebSockets**, **data modeling with JPA/Hibernate**, **Flyway migrations**, and **production deployment considerations** (secure cookies, proxy headers, CORS).
